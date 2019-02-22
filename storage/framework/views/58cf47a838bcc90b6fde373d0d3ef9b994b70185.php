@@ -1,0 +1,1 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <title>Inbox</title> </head> <body> Fullname : <?php echo e($fullname); ?> <br> Email: <?php echo e($email); ?> <br> Phone: <?php echo e($phone); ?> <br> Company/Organization: <?php echo e($company); ?> <br> Message : <?php echo e($messages); ?> <br> </body> </html>

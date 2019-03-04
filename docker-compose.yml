@@ -1,0 +1,38 @@
+version: "3.1"
+services:
+    mysql:
+      image: mysql:8.0
+      container_name: dtc-halbar-mysql
+      command: --default-authentication-plugin=mysql_native_password
+      working_dir: /application
+      volumes:
+        - dbdata:/va/lib/mysql
+      environment:
+        - MYSQL_ROOT_PASSWORD=dtcworld2019
+        - MYSQL_DATABASE=dtc_halbar
+        - MYSQL_USER=dtc
+        - MYSQL_PASSWORD=halbar2019#
+      ports:
+        - "8083:3306"
+
+    webserver:
+      image: nginx:alpine
+      container_name: dtc-halbar-webserver
+      working_dir: /application
+      volumes:
+          - .:/application
+          - ./docker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+      ports:
+       - "8081:80"
+
+    php-fpm:
+      build: docker/php-fpm
+      container_name: dtc-halbar-php-fpm
+      working_dir: /application
+      links:
+        - mysql
+      volumes:
+        - .:/application
+        - ./docker/php-fpm/php-ini-overrides.ini:/etc/php/7.3/fpm/conf.d/99-overrides.ini
+volumes:
+  dbdata:

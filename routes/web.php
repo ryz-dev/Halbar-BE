@@ -26,6 +26,7 @@ Route::group(['namespace' => 'Admin'], function () {
         Route::group(['prefix' => '/mail'], function () {
             Route::get('/', 'MessagesController@index')->name('messages');
             Route::get('/propsal', 'MessagesController@proposal')->name('proposal');
+            Route::get('/pengaduan', 'MessagesController@pengaduan')->name('pengaduan');
             Route::get('/compose', 'MessagesController@compose')->name('messages_create');
             Route::post('/send', 'MessagesController@send')->name('messages_send');
             Route::get('/detail/{id?}', 'MessagesController@detail')->name('messages_detail');

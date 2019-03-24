@@ -36,6 +36,7 @@ Route::group(['middleware' => ['apikey'], 'namespace' => 'API\V1','prefix' => 'v
     Route::group(['prefix' => 'message'], function () {
         Route::post('inbox', 'ContactController@inbox');
         Route::post('proposal', 'ContactController@proposal');
+        Route::post('pengaduan', 'ContactController@pengaduan');
     });
     Route::group(['prefix' => 'testimonial'], function () {
         Route::get('', 'TestimonialController@index');

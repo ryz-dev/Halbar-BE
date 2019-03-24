@@ -9,9 +9,9 @@
 			</div>
 			<div class="wrapper hidden-sm hidden-xs" id="email-menu">
 				<ul class="nav nav-pills nav-stacked nav-sm">
-					<li class="active"><a href="{{ route('messages') }}">Inbox</a></li>
+					<li><a href="{{ route('messages') }}">Inbox</a></li>
 					<li><a href="{{ route('proposal') }}">Request Proposal</a></li>
-					<li><a href="{{ route('pengaduan') }}">Pengaduan</a></li>
+                    <li class="active"><a href="{{ route('pengaduan') }}">Pengaduan</a></li>
 					<li><a href="{{ route('messages_sent') }}">Sent</a></li>
 					<li><a href="{{ route('messages_trash') }}">Trash</a></li>
 				</ul>
@@ -23,8 +23,8 @@
 				<div class="wrapper bg-light lter b-b">
 					<div class="btn-group pull-right">
 						<?php
-							$prev = $messages->currentPage() > 1 ? $linkpage.( $messages->currentPage() - 1)  : "#";
-							$next = $messages->hasMorePages() > 0 ? $linkpage.( $messages->currentPage() + 1)  : "#";
+							$prev = $pengaduan->currentPage() > 1 ? $linkpage.( $pengaduan->currentPage() - 1)  : "#";
+							$next = $pengaduan->hasMorePages() > 0 ? $linkpage.( $pengaduan->currentPage() + 1)  : "#";
 						?>
 						<a href="{{ $prev }}" type="button" class="btn btn-sm btn-bg btn-default"><i class="fa fa-chevron-left"></i></a>
 						<a href="{{ $next }}" type="button" class="btn btn-sm btn-bg btn-default"><i class="fa fa-chevron-right"></i></a>
@@ -37,15 +37,15 @@
 				<!-- / header -->
 				<!-- list -->
 				<ul class="list-group list-group-lg no-radius m-b-none m-t-n-xxs">
-					@forelse ($messages as $message)
-						<li class="list-group-item clearfix {{ $message->read_status == '0' ? 'b-l-3x b-l-info' : '' }}">
+					@forelse ($pengaduan as $pengaduan)
+						<li class="list-group-item clearfix {{ $pengaduan->read_status == '0' ? 'b-l-3x b-l-info' : '' }}">
 							<div class="pull-right text-sm text-muted">
-								<span class="hidden-xs ">{{ Carbon\Carbon::parse($message->created_at)->diffForHumans() }}</span>
+								<span class="hidden-xs ">{{ Carbon\Carbon::parse($pengaduan->created_at)->diffForHumans() }}</span>
 								<i class="fa fa-paperclip m-l-sm"></i>
 							</div>
 							<div class="clear">
-								<div><a class="text-md {{ $message->read_status == '0' ? 'font-bold' : '' }}" href="{{ route('messages_detail', ['id' => $message->id]) }}">{{ $message->fullname }}</a></div>
-								<div class="text-ellipsis m-t-xs ">{{ str_limit($message->message, 100) }}</div>
+								<div><a class="text-md {{ $pengaduan->read_status == '0' ? 'font-bold' : '' }}" href="{{ route('messages_detail', ['id' => $pengaduan->id]) }}">{{ $pengaduan->informer_fullname }}</a></div>
+								<div class="text-ellipsis m-t-xs ">{{ str_limit($pengaduan->complaint, 100) }}</div>
 							</div>
 						</li>
 					@empty

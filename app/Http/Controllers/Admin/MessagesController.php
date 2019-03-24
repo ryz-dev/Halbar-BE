@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Messages;
+use App\Pengaduan;
 use DB;
 use GlobalClass;
 use Mail;
@@ -40,6 +41,18 @@ class MessagesController extends Controller
         /* Get Messages from DB */
         $data['messages'] = Messages::where('type', 'proposal')->orderBy('id', 'DESC')->paginate(20);
         return view('admin.messages.proposal', $data);
+    }
+
+    public function pengaduan(){
+        GlobalClass::Roleback(['Writer']);
+
+        /* Link Pagination */
+        $linkpage   = "mail?page=";
+        $data['linkpage'] = $linkpage;
+
+        /* Get pengaduan from DB */
+        $data['pengaduan'] = Pengaduan::orderBy('id', 'DESC')->paginate(20);
+        return view('admin.messages.pengaduan', $data);
     }
 
     public function compose()

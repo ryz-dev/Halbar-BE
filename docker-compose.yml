@@ -15,15 +15,6 @@ services:
       ports:
         - "8083:3306"
 
-    dtc-halbar-webserver:
-      image: nginx:alpine
-      container_name: dtc-halbar-webserver
-      working_dir: /application
-      volumes:
-          - .:/application
-          - ./docker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
-      ports:
-       - "8081:80"
 
     dtc-halbar-php-fpm:
       build: docker/php-fpm
@@ -34,5 +25,16 @@ services:
       volumes:
         - .:/application
         - ./docker/php-fpm/php-ini-overrides.ini:/etc/php/7.2/fpm/conf.d/99-overrides.ini
+
+    dtc-halbar-webserver:
+      image: nginx:alpine
+      container_name: dtc-halbar-webserver
+      working_dir: /application
+      volumes:
+          - .:/application
+          - ./docker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+      ports:
+       - "8081:80"
+       
 volumes:
   dbdata:

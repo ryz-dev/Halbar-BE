@@ -76,4 +76,8 @@ Route::group(['middleware' => ['apikey'], 'namespace' => 'API\V1','prefix' => 'v
     Route::group(['prefix' => 'download'], function(){
         Route::get('', 'DownloadController@index');
     });
+
+    Route::group(['prefix' => 'opd'], function(){
+        Route::get('/read/{slug}', 'OpdController@read' );
+    });
 });

@@ -234,6 +234,16 @@ Route::group(['namespace' => 'Admin'], function () {
             Route::put('/update/{id?}', 'PagesController@update')->name('pages_update');
             Route::post('/delete', 'PagesController@delete')->name('pages_delete');
         });
+        
+        Route::group(['prefix' => '/opd'], function () {
+            Route::get('/', 'OpdController@index')->name('opd');
+            Route::get('/create', 'OpdController@create')->name('opd_create');
+            Route::post('/store', 'OpdController@store')->name('opd_store');
+            Route::get('/{slug?}', 'OpdController@detail')->name('opd_detail');
+            Route::get('/edit/{id?}', 'OpdController@edit')->name('opd_edit');
+            Route::put('/update/{id?}', 'OpdController@update')->name('opd_update');
+            Route::post('/delete', 'OpdController@delete')->name('opd_delete');
+        });
 
         /* Templates */
         Route::group(['prefix' => '/templates'], function () {

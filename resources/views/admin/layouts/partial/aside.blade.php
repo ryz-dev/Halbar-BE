@@ -100,6 +100,14 @@
 							</a>
 						</li>
 					@endif					
+					@if ($status == 'Super Admin' OR $status == 'Admin')
+						<li {{ Request::is('admin/opd*') ? 'class=active' : '' }}>
+							<a href="{{ route('opd') }}">
+								<i class="fa fa-handshake"></i>
+								<span>OPD</span>
+							</a>
+						</li>
+					@endif					
 					@if ($status != 'Customer Service')
 						<li {{ Request::is('admin/category*') ? 'class=active' : '' }}>
 							<a href="{{ route('category') }}">
@@ -123,7 +131,7 @@
 								<span>Download</span>
 							</a>
 						</li>
-					@endif					
+					@endif		
 					@if ($status == 'Super Admin' OR $status == 'Admin')
 						<li {{ Request::is('admin/slideshow*') ? 'class=active' : '' }}>
 							<a href="{{ route('slideshow') }}">

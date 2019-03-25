@@ -73,4 +73,7 @@ Route::group(['middleware' => ['apikey'], 'namespace' => 'API\V1','prefix' => 'v
         Route::get('', 'SubscribersController@index');
         Route::post('create', 'SubscribersController@store');
     });
+    Route::group(['prefix' => 'download'], function(){
+        Route::get('', 'DownloadController@index');
+    });
 });

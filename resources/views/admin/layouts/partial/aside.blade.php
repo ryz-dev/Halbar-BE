@@ -115,6 +115,14 @@
 								<span>Media</span>
 							</a>
 						</li>
+					@endif
+					@if ($status == 'Super Admin' OR $status == 'Admin')
+						<li {{ Request::is('admin/archive*') ? 'class=active' : '' }}>
+							<a href="{{ route('archive') }}">
+								<i class="fa fa-download"></i>
+								<span>Download</span>
+							</a>
+						</li>
 					@endif					
 					@if ($status == 'Super Admin' OR $status == 'Admin')
 						<li {{ Request::is('admin/slideshow*') ? 'class=active' : '' }}>

@@ -22,8 +22,7 @@ class ContactController extends Controller
         /*Validation Store*/
         $validator = Validator::make($r->all(), [
             'fullname'=>'required|max:150',
-            'email'=>'required|email|max:100',
-            'phone'=>'required|numeric|min:20',
+            'email'=>'required|max:100',
             'message'=>'required'
         ]);
         if ($validator->fails()) {
@@ -35,7 +34,6 @@ class ContactController extends Controller
                 'errors' => [
                     ['name'=>'fullname','message'=>$validator->errors()->first('fullname')],
                     ['name'=>'email','message'=>$validator->errors()->first('email')],
-                    ['name'=>'phone','message'=>$validator->errors()->first('phone')],
                     ['name'=>'message','message'=>$validator->errors()->first('message')],
                 ]
             ], 200);
@@ -46,8 +44,6 @@ class ContactController extends Controller
         $data = [
             'fullname' => $r->fullname,
             'email' => $r->email,
-            'phone' => $r->phone,
-            'company' => $r->company,
             'messages' => $r->message
         ];
 
@@ -61,7 +57,6 @@ class ContactController extends Controller
         $message = new Messages;
         $message->fullname = $r->fullname;
         $message->email = $r->email;
-        $message->phone = $r->phone;
         $message->message = $r->message;
         $message->save();
         return response([
@@ -119,7 +114,7 @@ class ContactController extends Controller
         $pengaduan->suspect_division = $r->suspect_division;
         $pengaduan->subject = $r->subject;
         $pengaduan->complaint = $r->complaint;
-        
+
         if ($pengaduan->save()) {
             /*Send Mail*/
             $user = 'ihksansanhas@gmail.com';

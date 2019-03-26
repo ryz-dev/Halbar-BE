@@ -7,8 +7,6 @@
 <body>
 	Fullname : {{ $fullname }} <br>
 	Email: {{ $email }} <br>
-	Phone: {{ $phone }} <br>
-	Company/Organization: {{ $company }} <br>
 	Message : {{ $messages }} <br>
 </body>
 </html>

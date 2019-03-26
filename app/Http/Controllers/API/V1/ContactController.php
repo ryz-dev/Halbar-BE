@@ -103,30 +103,10 @@ class ContactController extends Controller
                     ['name'=> 'suspect_division', 'message'=>$validator->errors()->first('suspect_division')],
                     ['name'=> 'subject', 'message'=>$validator->errors()->first('subject')],
                     ['name'=> 'complaint', 'message'=>$validator->errors()->first('message')],
-                ]
-            ], 200);
-        }
-
-        /*Send Mail*/
-        $user = 'ihksansanhas@gmail.com';
-        $data = [
-            'informer_fullname' => $r->informer_fullname,
-            'informer_address' => $r->informer_address,
-            'informer_email' => $r->informer_email,
-            'informer_phone' => $r->informer_phone,
-            'suspect_fullname' => $r->suspect_fullname,
-            'suspect_department' => $r->suspect_department,
-            'suspect_division' => $r->suspect_division,
-            'subject' => $r->subject,
-            'complaint' => $r->complaint
-        ];
-
-        Mail::send('mail.pengaduan', $data, function ($mail) use ($user) {
-            $mail->to($user);
-            $mail->from('docotelteknologicelebes@gmail.com', 'dtc Group');
-            $mail->subject('Pengaduan ');
-        });
-
+                    ]
+                ], 200);
+            }
+            
         /*Insert Data to DB*/
         $message = new Pengaduan;
 
@@ -140,10 +120,32 @@ class ContactController extends Controller
         $message->subject = $r->subject;
         $message->complaint = $r->complaint;
 
-        $message->save();
-        return response([
-            'message'=>'Your message already received'
-        ], 200);
+        if ($message->save()) {
+            /*Send Mail*/
+            $user = 'ihksan7sanhas@gmail.com';
+            $data = [
+                'informer_fullname' => $r->informer_fullname,
+                'informer_address' => $r->informer_address,
+                'informer_email' => $r->informer_email,
+                'informer_phone' => $r->informer_phone,
+                'suspect_fullname' => $r->suspect_fullname,
+                'suspect_department' => $r->suspect_department,
+                'suspect_division' => $r->suspect_division,
+                'subject' => $r->subject,
+                'complaint' => $r->complaint
+            ];
+    
+            Mail::send('mail.pengaduan', $data, function ($mail) use ($user) {
+                $mail->to($user);
+                $mail->from('docotelteknologicelebes@gmail.com', 'dtc Group');
+                $mail->subject('Pengaduan ');
+            });
+    
+            return response([
+                'message'=>'Your message already received'
+            ], 200);
+        }
+
     }
 
     public function proposal(Request $r)

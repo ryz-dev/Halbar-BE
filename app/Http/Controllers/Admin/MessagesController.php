@@ -164,4 +164,30 @@ class MessagesController extends Controller
         $r->session()->flash('success', 'Message Successfully Deleted');
         return redirect(route('messages'));
     }
+
+    public function detailPengaduan($id = null){
+        GlobalClass::Roleback(['Writer']);
+        DB::update('update pengaduan set read_status = "1" where id = ?', [$id]);
+
+        /* Get Messages from DB */
+        $pengaduan = DB::table('pengaduan')->where('id', $id)->first();
+        $data['pengaduan'] = $pengaduan;
+        return view('admin.messages.pengaduan_detail', $data);
+    }
+
+    public function deletePengaduan(Request $r){
+        GlobalClass::Roleback(['Writer']);
+
+        /* Get Messages from DB */
+        $pengaduan = DB::table('pengaduan')->where('id', $r->id)->first();
+        if ($pengaduan->deleted_at != null) {
+            Pengaduan::where('id', $r->id)->forceDelete();
+        } else {
+            Pengaduan::where('id', $r->id)->delete();
+        }
+
+        /* Success Message */
+        $r->session()->flash('success', 'Pengaduan Successfully Deleted');
+        return redirect(route('pengaduan'));
+    }
 }

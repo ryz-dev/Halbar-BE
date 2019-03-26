@@ -44,7 +44,7 @@
 								<i class="fa fa-paperclip m-l-sm"></i>
 							</div>
 							<div class="clear">
-								<div><a class="text-md {{ $pengaduan->read_status == '0' ? 'font-bold' : '' }}" href="{{ route('messages_detail', ['id' => $pengaduan->id]) }}">{{ $pengaduan->informer_fullname }}</a></div>
+								<div><a class="text-md {{ $pengaduan->read_status == '0' ? 'font-bold' : '' }}" href="{{ route('detail_pengaduan', ['id' => $pengaduan->id]) }}">{{ $pengaduan->informer_fullname }}</a></div>
 								<div class="text-ellipsis m-t-xs ">{{ str_limit($pengaduan->complaint, 100) }}</div>
 							</div>
 						</li>

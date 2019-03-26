@@ -27,11 +27,12 @@ Route::group(['middleware' => ['apikey'], 'namespace' => 'API\V1','prefix' => 'v
     });
     Route::group(['prefix' => 'posts'], function () {
         Route::get('', 'PostsController@index');
-        Route::get('/read/{id}', 'PostsController@read');
+        Route::get('/read/{slug}', 'PostsController@read');
         Route::get('/search', 'PostsController@search');
         Route::post('/comment', 'PostsController@commentStore');
         Route::post('/count', 'PostsController@countStore');
         Route::get('/fiture', 'PostsController@embedFiture');
+        Route::get('/related/{categoryId}', 'PostsController@relatedPost');
     });
     Route::group(['prefix' => 'message'], function () {
         Route::post('inbox', 'ContactController@inbox');

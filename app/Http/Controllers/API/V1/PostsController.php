@@ -145,13 +145,13 @@ class PostsController extends Controller
         ], 200);
     }
 
-    public function read($idPosts = null)
+    public function read($slug = null)
     {
         /* Data Master */
         $dataPosts = Posts::with(['users','category', 'comment'=>function ($query) {
             $query->where('id_parent', 0);
         }])
-        ->where('id', $idPosts)
+        ->where('slug', $slug)
         ->where('status', 'publish')
         ->where('published', '<=', \DB::raw('now()'))->first();
         /* Data Posts */
@@ -201,6 +201,35 @@ class PostsController extends Controller
           'code'=>200
         ]
       ], 200);
+    }
+
+    public function relatedPost($categoryId = null){
+        
+        $postData = Posts::where('category', $categoryId)->get();
+        if ($postData) {
+            $result = $postData->map(function($value, $key){
+                return [
+                    'title' => $value->title,
+                    'slug' => $value->slug,
+                    'contet' => readMore(['text'=>$value->content,'limit'=>150]),
+                    'published'=> Carbon\Carbon::parse($value->published)->format('d F Y'),
+                ];
+            });
+            
+            return response([
+                'diagnostic' => [
+                    'code' => 200,
+                    'status' => 'ok'
+                ],
+                'response' => $result
+            ], 200);
+        }
+        
+        return response([
+            'diagnostic' => [
+              'status'=>'NOT_FOUND',
+              'code'=>200
+            ]], 200);
     }
 
     public function countStore(Request $r)

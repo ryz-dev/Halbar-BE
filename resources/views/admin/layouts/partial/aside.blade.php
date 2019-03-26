@@ -140,30 +140,30 @@
 							</a>
 						</li>
 					@endif
-					@if ($status == 'Super Admin' OR $status == 'Admin')
+					<!-- @if ($status == 'Super Admin' OR $status == 'Admin')
 						<li {{ Request::is('admin/pricing*') ? 'class=active' : '' }}>
 							<a href="{{ route('pricing') }}">
 								<i class="fa fa-dollar"></i>
 								<span>Price</span>
 							</a>
 						</li>
-					@endif
-					@if ($status == 'Super Admin' OR $status == 'Admin')
+					@endif -->
+					<!-- @if ($status == 'Super Admin' OR $status == 'Admin')
 					<li {{ Request::is('admin/testimonials*') ? 'class=active' : '' }}>
 						<a href="{{ route('testimonials') }}">
 							<i class="icon-check"></i>
 							<span>Testimonials</span>
 						</a>
 					</li>
-					@endif	
-					@if ($status == 'Super Admin' OR $status == 'Admin')
+					@endif	 -->
+					<!-- @if ($status == 'Super Admin' OR $status == 'Admin')
 						<li {{ Request::is('admin/client*') ? 'class=active' : '' }}>
 							<a href="{{ route('client') }}">
 								<i class="icon-emoticon-smile"></i>
 								<span>Client</span>
 							</a>
 						</li>
-					@endif
+					@endif -->
 					@if ($status == 'Super Admin' OR $status == 'Admin')
 					<li {{ Request::is('admin/about*') ? 'class=active' : '' }}>
 						<a href="{{ route('about') }}">

@@ -9,6 +9,7 @@ class Pengaduan extends Model
 {
     protected $table = 'pengaduan';
     protected $fillable = [
+        'id',
         'informer_fullname',
         'informer_address',
         'informer_email',

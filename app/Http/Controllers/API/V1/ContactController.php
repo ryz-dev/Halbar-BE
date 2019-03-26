@@ -119,9 +119,7 @@ class ContactController extends Controller
         $pengaduan->suspect_division = $r->suspect_division;
         $pengaduan->subject = $r->subject;
         $pengaduan->complaint = $r->complaint;
-
-        dd($pengaduan->save());
-
+        
         if ($pengaduan->save()) {
             /*Send Mail*/
             $user = 'ihksansanhas@gmail.com';

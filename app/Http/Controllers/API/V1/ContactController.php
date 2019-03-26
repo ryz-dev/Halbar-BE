@@ -108,21 +108,23 @@ class ContactController extends Controller
             }
             
         /*Insert Data to DB*/
-        $message = new Pengaduan;
+        $pengaduan = new Pengaduan;
 
-        $message->informer_fullname = $r->informer_fullname;
-        $message->informer_address = $r->informer_address;
-        $message->informer_email = $r->informer_email;
-        $message->informer_phone = $r->informer_phone;
-        $message->suspect_fullname = $r->suspect_fullname;
-        $message->suspect_department = $r->suspect_department;
-        $message->suspect_division = $r->suspect_division;
-        $message->subject = $r->subject;
-        $message->complaint = $r->complaint;
+        $pengaduan->informer_fullname = $r->informer_fullname;
+        $pengaduan->informer_address = $r->informer_address;
+        $pengaduan->informer_email = $r->informer_email;
+        $pengaduan->informer_phone = $r->informer_phone;
+        $pengaduan->suspect_fullname = $r->suspect_fullname;
+        $pengaduan->suspect_department = $r->suspect_department;
+        $pengaduan->suspect_division = $r->suspect_division;
+        $pengaduan->subject = $r->subject;
+        $pengaduan->complaint = $r->complaint;
 
-        if ($message->save()) {
+        dd($pengaduan);
+
+        if ($pengaduan->save()) {
             /*Send Mail*/
-            $user = 'ihksan7sanhas@gmail.com';
+            $user = 'ihksansanhas@gmail.com';
             $data = [
                 'informer_fullname' => $r->informer_fullname,
                 'informer_address' => $r->informer_address,

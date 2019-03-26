@@ -120,7 +120,7 @@ class ContactController extends Controller
         $pengaduan->subject = $r->subject;
         $pengaduan->complaint = $r->complaint;
 
-        dd($pengaduan);
+        dd($pengaduan->save());
 
         if ($pengaduan->save()) {
             /*Send Mail*/

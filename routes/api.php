@@ -44,7 +44,7 @@ Route::group(['middleware' => ['apikey'], 'namespace' => 'API\V1','prefix' => 'v
     });
     Route::group(['prefix' => 'pages'], function () {
         Route::get('', 'PagesController@index');
-        Route::get('/read/{id}', 'PagesController@read');
+        Route::get('/read/{slug}', 'PagesController@read');
     });
     Route::group(['prefix' => 'menus'], function () {
         Route::get('{type}', 'MenusController@index');

@@ -59,11 +59,11 @@ class PagesController extends Controller
         ], 404);
     }
 
-    public function read($idPages = null)
+    public function read($slug = null)
     {
         /* Data Master */
         $dataPages = Pages::with('category')
-        ->where('id', $idPages)
+        ->where('slug', $slug)
         ->where('deleted_at', null)
         ->first();
 

@@ -42,7 +42,7 @@ class ContactController extends Controller
         }
 
         /*Send Mail*/
-        $user = 'info@dtc.co.id';
+        $user = 'ihksansanhas@gmail.com';
         $data = [
             'fullname' => $r->fullname,
             'email' => $r->email,
@@ -108,7 +108,7 @@ class ContactController extends Controller
         }
 
         /*Send Mail*/
-        $user = 'muh.zul.r@gmail.com';
+        $user = 'ihksansanhas@gmail.com';
         $data = [
             'informer_fullname' => $r->informer_fullname,
             'informer_address' => $r->informer_address,
@@ -174,7 +174,7 @@ class ContactController extends Controller
         }
 
         /*Send Mail*/
-        $user = 'info@dtc.co.id';
+        $user = 'ihksansanhas@gmail.com';
         $data = [
             'fullname' => $r->fullname,
             'email' => $r->email,

@@ -54,7 +54,7 @@
 								data-title="{{ $menu->menu_title }}"
 								data-link="{{ $menu->url }}"
 								data-submenu="{{ $menu->parent }}"
-								data-preview="{{ $menu->image=="default.jpg"?asset("uploaded/media/default.jpg"):asset("uploaded/menus/".$menu->image) }}">
+								data-preview="{{ $menu->image=="default.jpg"?asset("assets/admin/img/default.jpg"):asset("uploaded/menus/".$menu->image) }}">
 								<div class="dd-handle dd3-handle">Drag</div><div class="dd3-content">{{ $menu->menu_title }}
 									<div class="pull-right sortable-action">
 										<a href="#" data-toggle="modal" data-target="#modal-edit-menus"><i class="glyphicon glyphicon-pencil"></i></a>
@@ -71,7 +71,7 @@
 												data-title="{{ $submenu->menu_title }}"
 												data-link="{{ $submenu->url }}"
 												data-submenu="{{ $submenu->parent }}"
-												data-preview="{{ $submenu->image=="default.jpg"?asset("uploaded/media/default.jpg"):asset("uploaded/menus/".$submenu->image) }}">
+												data-preview="{{ $submenu->image=="default.jpg"?asset("assets/admin/img/default.jpg"):asset("uploaded/menus/".$submenu->image) }}">
 												<div class="dd-handle dd3-handle">Drag</div><div class="dd3-content">{{ $submenu->menu_title }}
 													<div class="pull-right sortable-action">
 														<a href="#" data-toggle="modal" data-target="#modal-edit-menus"><i class="glyphicon glyphicon-pencil"></i></a>
@@ -88,7 +88,7 @@
 																data-title="{{ $subsubmenu->menu_title }}"
 																data-link="{{ $subsubmenu->url }}"
 																data-subsubmenu="{{ $subsubmenu->parent }}"
-																data-preview="{{ $subsubmenu->image=="default.jpg"?asset("uploaded/media/default.jpg"):asset("uploaded/menus/".$subsubmenu->image) }}">
+																data-preview="{{ $subsubmenu->image=="default.jpg"?asset("assets/admin/img/default.jpg"):asset("uploaded/menus/".$subsubmenu->image) }}">
 																<div class="dd-handle dd3-handle">Drag</div><div class="dd3-content">{{ $subsubmenu->menu_title }}
 																	<div class="pull-right sortable-action">
 																		<a href="#" data-toggle="modal" data-target="#modal-edit-menus"><i class="glyphicon glyphicon-pencil"></i></a>
@@ -167,7 +167,7 @@
 						{{-- <div class="form-group">
 							<label>Featured image</label>
 							<div class="form-group">
-								<img class="previewImage_" src="{{ asset('uploaded/media/default.jpg') }}" width="100%">
+								<img class="previewImage_" src="{{ asset('assets/admin/img/default.jpg') }}" width="100%">
 								<input type="file" name="image" class="form-control" accept=".svg, .png">
 							</div>
 						</div> --}}
@@ -233,7 +233,7 @@
 						{{-- <div class="form-group">
 							<label>Featured image</label>
 							<div class="form-group">
-								<img class="previewImage_" src="{{ asset('uploaded/media/default.jpg') }}" width="100%">
+								<img class="previewImage_" src="{{ asset('assets/admin/img/default.jpg') }}" width="100%">
 								<input type="file" name="image" class="form-control" accept=".svg, .png">
 							</div>
 						</div> --}}

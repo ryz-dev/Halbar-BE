@@ -45,7 +45,7 @@
 						<div class="col-md-6 col-sm-6">
 							<label>Featured image</label>
 							<div class="form-group">
-								<img id="previewImage_-" data-toggle="modal" data-target="#modal-galleries" src="{{ asset('uploaded/media/default.jpg') }}" width="100%">
+								<img id="previewImage_-" data-toggle="modal" data-target="#modal-galleries" src="{{ asset('assets/admin/img/default.jpg') }}" width="100%">
 								<input type="hidden" name="image" value="default.jpg" id="targetValue_-">
 								@include('admin.images.modals')
 							</div>

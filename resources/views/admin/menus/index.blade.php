@@ -184,6 +184,7 @@
 							<select name="type" class="form-control">
 								<option value="pages">Pages</option>
 								<option value="posts">Post</option>
+								<option value="opd">Opd</option>
 							</select>
 						</div>
 
@@ -274,6 +275,7 @@
 							<select name="type" class="form-control">
 								<option value="pages">Pages</option>
 								<option value="posts">Post</option>
+								<option value="opd">Opd</option>
 							</select>
 						</div>
 

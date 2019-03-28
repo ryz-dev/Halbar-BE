@@ -15,7 +15,7 @@ class AlterMenusTable extends Migration
     {
         Schema::table('menus', function (Blueprint $table) {
             $table->boolean('flag_category')->after('description')->nullable();
-            $table->enum('type', ['pages','posts'])->after('flag_category')->nullable();
+            $table->enum('type', ['pages','posts','opd'])->after('flag_category')->nullable();
             $table->integer('category_id')->after('type')->nullable();
         });
     }

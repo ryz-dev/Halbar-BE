@@ -48,6 +48,7 @@ Route::group(['middleware' => ['apikey'], 'namespace' => 'API\V1','prefix' => 'v
     });
     Route::group(['prefix' => 'menus'], function () {
         Route::get('{type}', 'MenusController@index');
+        Route::get('header/{type}/{category}', 'MenusController@headerType');
     });
     Route::group(['prefix' => 'slider'], function () {
         Route::get('', 'SliderController@index');

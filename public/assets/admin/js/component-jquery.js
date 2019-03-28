@@ -47,13 +47,21 @@ $(document).ready(function () {
     } else if (data.subsubmenu) {
       var parent = data.subsubmenu;
     }
+    
+    var category = data.category_id;
     var status = data.status;
+
+    console.log(data);
     $(this).find('select[name="parent"]').prop('selectedIndex', 0);
     $(this).find('input[name="id"]').val(data.id);
     $(this).find('input[name="menu_title"]').val(data.title);
     $(this).find('input[name="url"]').val(data.link);
     $(this).find('select[name="parent"] option[value="' + parent + '"]').prop("selected", true);
     $(this).find('.previewImage_').attr('src', data.preview);
+
+    $(this).find("input[name='flag_category[]'][value='"+data.flag+"']").prop('checked', true);
+    $(this).find('select[name="type"] option[value="' + data.type + '"]').prop("selected", true);
+    $(this).find('select[name="category_id"] option[value="' + data.category + '"]').prop("selected", true);
     if (status == true) {
       $('#textarea').html('<div class="form-group"><label>Description</label><div class="form-group"><textarea class="form-control" name="description">' + data.description + '</textarea></div></div>');
     } else {

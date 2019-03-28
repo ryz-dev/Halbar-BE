@@ -54,6 +54,9 @@
 								data-title="{{ $menu->menu_title }}"
 								data-link="{{ $menu->url }}"
 								data-submenu="{{ $menu->parent }}"
+								data-flag="{{ $menu->flag_category }}"
+								data-type="{{ $menu->type }}"
+								data-category="{{ $menu->category_id }}"
 								data-preview="{{ $menu->image=="default.jpg"?asset("assets/admin/img/default.jpg"):asset("uploaded/menus/".$menu->image) }}">
 								<div class="dd-handle dd3-handle">Drag</div><div class="dd3-content">{{ $menu->menu_title }}
 									<div class="pull-right sortable-action">
@@ -71,6 +74,9 @@
 												data-title="{{ $submenu->menu_title }}"
 												data-link="{{ $submenu->url }}"
 												data-submenu="{{ $submenu->parent }}"
+												data-flag="{{ $submenu->flag_category }}"
+												data-type="{{ $submenu->type }}"
+												data-category="{{ $submenu->category_id }}"
 												data-preview="{{ $submenu->image=="default.jpg"?asset("assets/admin/img/default.jpg"):asset("uploaded/menus/".$submenu->image) }}">
 												<div class="dd-handle dd3-handle">Drag</div><div class="dd3-content">{{ $submenu->menu_title }}
 													<div class="pull-right sortable-action">
@@ -88,6 +94,9 @@
 																data-title="{{ $subsubmenu->menu_title }}"
 																data-link="{{ $subsubmenu->url }}"
 																data-subsubmenu="{{ $subsubmenu->parent }}"
+																data-flag="{{ $submenu->flag_category }}"
+																data-type="{{ $submenu->type }}"
+																data-category="{{ $submenu->category_id }}"
 																data-preview="{{ $subsubmenu->image=="default.jpg"?asset("assets/admin/img/default.jpg"):asset("uploaded/menus/".$subsubmenu->image) }}">
 																<div class="dd-handle dd3-handle">Drag</div><div class="dd3-content">{{ $subsubmenu->menu_title }}
 																	<div class="pull-right sortable-action">
@@ -164,6 +173,29 @@
 								@endforeach
 							</select>
 						</div>
+						<div class="form-group">
+							<label for="">Menu for category? </label>
+							<input type="radio" name="flag_category[]" value="0"> Yes
+							<input type="radio" name="flag_category[]" checked value="1"> No
+						</div>
+
+						<div class="form-group">
+							<label for="">Type</label>
+							<select name="type" class="form-control">
+								<option value="pages">Pages</option>
+								<option value="posts">Post</option>
+							</select>
+						</div>
+
+						<div class="form-group">
+							<label>Category</label>
+							<select name="category_id" class="form-control">
+								@foreach($category as $cat)
+									<option value="{{ $cat->id }}">{{ $cat->name }}</option>
+								@endforeach
+							</select>
+						</div>
+
 						{{-- <div class="form-group">
 							<label>Featured image</label>
 							<div class="form-group">
@@ -216,6 +248,7 @@
 								@endforeach
 							</datalist>
 						</div>
+
 						<div class="form-group">
 							<label for="">Sub menu from:</label>
 							<select class="form-control" name="parent">
@@ -227,6 +260,28 @@
 									@foreach ($menu as $key => $value)
 										<option value="{{ $value->id }}">{{ $value->menu_title }}</option>
 									@endforeach
+								@endforeach
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="">Menu for category? </label>
+							<input type="radio" name="flag_category[]" value="1"> Yes
+							<input type="radio" name="flag_category[]" value="0"> No
+						</div>
+
+						<div class="form-group">
+							<label for="">Type</label>
+							<select name="type" class="form-control">
+								<option value="pages">Pages</option>
+								<option value="posts">Post</option>
+							</select>
+						</div>
+
+						<div class="form-group">
+							<label>Category</label>
+							<select name="category_id" class="form-control">
+								@foreach($category as $cat)
+									<option value="{{ $cat->id }}">{{ $cat->name }}</option>
 								@endforeach
 							</select>
 						</div>

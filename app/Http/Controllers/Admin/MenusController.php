@@ -59,11 +59,13 @@ class MenusController extends Controller
         $data['category'] = Category::all();
         $data['archive'] = ArchiveGroup::all();
         $data['archive_item'] = Archive::all();
+        
         return view('admin.menus.index', $data);
     }
 
     public function store(Request $r)
     {
+        // dd($r);
         GlobalClass::Roleback(['Customer Service', 'Writer']);
 
         /*Validation*/
@@ -94,6 +96,9 @@ class MenusController extends Controller
             $tabMenus->url = $r->url;
             $tabMenus->parent = $r->parent;
             $tabMenus->status = $r->option;
+            $tabMenus->flag_category = $r->flag_category[0];
+            $tabMenus->type = $r->type;
+            $tabMenus->category_id = $r->category_id;
             $tabMenus->save();
             $r->session()->flash('success', 'Menu Successfully Added');
         } else {
@@ -140,6 +145,9 @@ class MenusController extends Controller
         $tabMenus->url = $r->url;
         $tabMenus->parent = $r->parent;
         $tabMenus->description = $r->description;
+        $tabMenus->flag_category = $r->flag_category[0];
+        $tabMenus->type = $r->type;
+        $tabMenus->category_id = $r->category_id;
         $tabMenus->update();
 
         /*Success Message*/

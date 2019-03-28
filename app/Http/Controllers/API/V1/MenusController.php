@@ -13,17 +13,21 @@ class MenusController extends Controller
         $dataMenus = Menus::where('status', $type)
         ->where('parent', '0')
         ->get();
+
         foreach ($dataMenus as $key => $parent) {
             $menus['response'][] = [
               'id_menu' => $parent->id,
               'title' => $parent->menu_title,
               'url' => $parent->url,
               'parent' => $parent->parent,
+              'flag_category' => $parent->flag_category,
+              'type' => $parent->type,
               'description' => isset($parent->description) == false ? '' : $parent->description,
               'image' => $parent->image == 'default.jpg' ? '' : asset("uploaded/menus/" . $parent->image),
               'sub' => $this->getSubs($parent->id)
           ];
         }
+
         if (isset($menus) > 0) {
             $menus['diagnostic'] = [
               'code'=>200,
@@ -31,6 +35,7 @@ class MenusController extends Controller
             ];
             return response($menus, 200);
         }
+        
         return response(
             [
               'diagnostic' => [
@@ -47,16 +52,38 @@ class MenusController extends Controller
         $dataMenus = Menus::where('parent', $id)->get();
         $menus = array();
         foreach ($dataMenus as $key => $subs) {
-            $menus[] = [
-              'id_menu' => $subs->id,
-              'title' => $subs->menu_title,
-              'url' => $subs->url,
-              'parent' => $subs->parent,
-              'description' => isset($subs->description) == false ? '' : $subs->description,
-              'image' => $subs->image == 'default.jpg' ? '' : asset("uploaded/menus/" . $subs->image),
-                'sub' => $this->getSubs($subs->id)
-            ];
+          $menus[$key] = [
+            'id_menu' => $subs->id,
+            'title' => $subs->menu_title,
+            'url' => $subs->url,
+            'parent' => $subs->parent,
+            'flag_category' => $subs->flag_category,
+            'type' => $subs->type,
+            'description' => isset($subs->description) == false ? '' : $subs->description,
+            'image' => $subs->image == 'default.jpg' ? '' : asset("uploaded/menus/" . $subs->image),
+            'sub' => $this->getSubs($subs->id)
+          ];
+          if ($subs->flag_category) {
+            $menus[$key]['category'] = $this->getCategory($subs->type, $subs->category_id);
+          }
         }
         return $menus;
+    }
+
+    private function getCategory($type, $id){
+      $data = \DB::table($type)->where('category', $id)->get();
+
+      if ($data) {
+        return $result = $data->map( function($value, $key) {
+          return [
+            'id' => $value->id,
+            'title' => $value->title,
+            'slug' => $value->slug
+          ];
+
+        });
+      }
+
+      return  $data;
     }
 }

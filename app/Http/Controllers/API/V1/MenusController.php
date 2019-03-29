@@ -71,7 +71,7 @@ class MenusController extends Controller
     }
 
     private function getCategory($type, $id){
-      $data = \DB::table($type)->where('category', $id)->get();
+      $data = \DB::table($type)->where('category', $id)->where('deleted_at', null)->get();
 
       if ($data) {
         return $result = $data->map( function($value, $key) {

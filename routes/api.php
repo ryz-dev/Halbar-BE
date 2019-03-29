@@ -80,6 +80,7 @@ Route::group(['middleware' => ['apikey'], 'namespace' => 'API\V1','prefix' => 'v
     });
 
     Route::group(['prefix' => 'opd'], function(){
+        Route::get('', 'OpdController@index' );
         Route::get('/read/{slug}', 'OpdController@read' );
     });
 });

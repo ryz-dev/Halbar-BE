@@ -30,7 +30,10 @@
 								<label for="">Email</label>
 								<input type="email" name="email" class="form-control" placeholder="ex: example@mail.com" value="{{ $team->email }}" required>
 							</div>
-
+							<div class="form-group">
+								<label>Nip</label>
+								<input type="text" name="nip" class="form-control" value="{{ $team->nip }}" placeholder="Nip">
+							</div>
 							<div class="form-group">
 								<label for="">Status</label>
 								<select class="form-control" name="status">

@@ -53,6 +53,10 @@
 									<input type="email" name="email" class="form-control" placeholder="Email Address" required>
 								</div>
 								<div class="form-group">
+									<label>Nip</label>
+									<input type="text" name="nip" class="form-control" placeholder="Nip"d>
+								</div>
+								<div class="form-group">
 									<label>Position</label>
 									<input type="text" name="position" class="form-control" placeholder="Position" required>
 								</div>

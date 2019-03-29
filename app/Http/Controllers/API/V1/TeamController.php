@@ -24,6 +24,7 @@ class TeamController extends Controller
                 'position' => $value->position,
                 'image' => asset('uploaded/media/'.$value->image),
                 'email' => $value->email,
+                'nip' => $value->nip,
                 'phone' => $value->phone,
                 'biografi' => $value->biografi
             ];

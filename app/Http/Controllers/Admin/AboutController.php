@@ -67,14 +67,16 @@ class AboutController extends Controller
             'name'=>'required',
             'position'=>'required|max:100',
             'image'=>'required',
+            'nip' => 'max:20',
             'email'=>'max:150',
             'phone'=>'max:20'
         ]);
 
         /*Save DB*/
-        DB::insert('insert into pages_about_team (name, position, image, phone, email, biografi) values (?, ?, ?, ?, ?, ?)', [
+        DB::insert('insert into pages_about_team (name, position, nip, image, phone, email, biografi) values (?, ?, ?, ?, ?, ?, ?)', [
                 $r->name,
                 $r->position,
+                $r->nip,
                 $r->image,
                 $r->phone,
                 $r->email,
@@ -107,14 +109,16 @@ class AboutController extends Controller
             'name'=>'required',
             'position'=>'required|max:100',
             'image'=>'required',
+            'nip' => 'max:20',
             'email'=>'max:150',
             'phone'=>'max:20'
         ]);
 
         /*Save to DB*/
-        DB::update('update pages_about_team set name = ?, position = ?, phone = ?, email = ?, biografi = ?, image = ? where id = ?', [
+        DB::update('update pages_about_team set name = ?, position = ?, nip = ?, phone = ?, email = ?, biografi = ?, image = ? where id = ?', [
             $r->name,
             $r->position,
+            $r->nip,
             $r->phone,
             $r->email,
             $r->biografi,

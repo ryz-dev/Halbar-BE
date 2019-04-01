@@ -83,4 +83,8 @@ Route::group(['middleware' => ['apikey'], 'namespace' => 'API\V1','prefix' => 'v
         Route::get('', 'OpdController@index' );
         Route::get('/read/{slug}', 'OpdController@read' );
     });
+
+    Route::group(['prefix' => 'media'], function(){
+        Route::get('', 'MediaController@index');
+    });
 });

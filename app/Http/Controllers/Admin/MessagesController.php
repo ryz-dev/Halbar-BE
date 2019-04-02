@@ -63,6 +63,12 @@ class MessagesController extends Controller
 
     public function send(Request $r)
     {
+        $this->validate($r, [
+            'email' => 'required|email',
+            'subject' => 'required',
+            'subject' => 'required'
+        ]);
+
         $user = $r->email;
         $subject = $r->subject;
         $data = ['content' => $r->content];

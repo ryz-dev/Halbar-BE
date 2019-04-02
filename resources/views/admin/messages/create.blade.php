@@ -26,6 +26,7 @@
 			</div>
 			<!-- / header -->
 			<div class="wrapper">
+				@include('admin.messages._error')
 				<form action="{{ route('messages_send') }}" method="post" class="form-horizontal m-t-lg ng-pristine ng-valid">
 					{{ csrf_field() }}
 					<div class="form-group">

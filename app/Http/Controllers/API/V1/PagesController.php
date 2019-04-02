@@ -15,7 +15,6 @@ class PagesController extends Controller
 {
     public function index(Request $request)
     {
-        dd($this);
         /* Data Master */
         if ($request->has('category')) {
             $dataPages = Pages::with('category')

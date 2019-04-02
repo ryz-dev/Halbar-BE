@@ -5,7 +5,7 @@
 		<div class="col w-md bg-light dk b-r bg-auto">
 			<div class="wrapper b-b bg">
 				<button class="btn btn-sm btn-default pull-right visible-sm visible-xs" ui-toggle="show" target="#email-menu"><i class="fa fa-bars"></i></button>
-				<a href="mail_create.html" class="btn btn-sm btn-primary w-xs font-bold">Compose</a>
+				<a href="{{ route('messages_create') }}" class="btn btn-sm btn-primary w-xs font-bold">Compose</a>
 			</div>
 			<div class="wrapper hidden-sm hidden-xs" id="email-menu">
 				<ul class="nav nav-pills nav-stacked nav-sm">

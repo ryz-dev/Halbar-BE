@@ -10,7 +10,7 @@
 			<div class="wrapper hidden-sm hidden-xs" id="email-menu">
 				<ul class="nav nav-pills nav-stacked nav-sm">
 					<li><a href="{{ route('messages') }}">Inbox</a></li>
-					<li><a href="{{ route('proposal') }}">Request Proposal</a></li>
+					<!-- <li><a href="{{ route('proposal') }}">Request Proposal</a></li> -->
 					<li><a href="{{ route('pengaduan') }}">Pengaduan</a></li>
 					<li><a href="{{ route('messages_sent') }}">Sent</a></li>
 					<li class="active"><a href="{{ route('messages_trash') }}">Trash</a></li>

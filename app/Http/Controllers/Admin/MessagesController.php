@@ -132,6 +132,10 @@ class MessagesController extends Controller
 
     public function reply(Request $r)
     {
+        $this->validate($r, [
+            'email' => 'email'
+        ]);
+        
         $user = $r->email;
         $data = ['content' => $r->content];
         Mail::send('mail.messages', $data, function ($mail) use ($user) {
@@ -142,10 +146,10 @@ class MessagesController extends Controller
         $send = new Messages;
         $send->email = $r->email;
         $send->message = $r->content;
-        $send->subject = $r->subject;
+        $send->subject = 'No Reply';
         $send->type = 'sent';
         $send->save();
-        return redirect()->back();
+        return redirect()->route('messages_sent');
     }
 
     public function delete(Request $r)

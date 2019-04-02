@@ -10,7 +10,7 @@
 			<div class="wrapper hidden-sm hidden-xs" id="email-menu">
 				<ul class="nav nav-pills nav-stacked nav-sm">
 					<li><a href="{{ route('messages') }}">Inbox</a></li>
-					<li><a href="{{ route('proposal') }}">Request Proposal</a></li>
+					<!-- <li><a href="{{ route('proposal') }}">Request Proposal</a></li> -->
 					<li><a href="{{ route('pengaduan') }}">Pengaduan</a></li>
 					<li><a href="{{ route('messages_sent') }}">Sent</a></li>
 					<li><a href="{{ route('messages_trash') }}">Trash</a></li>
@@ -20,11 +20,11 @@
 		<div class="col">
 			<div class="wrapper bg-light lter b-b">
 				@if ($message->type == 'inbox')
-					<a href="{{ route('messages') }}" class="btn btn-sm btn-default w-xxs m-r-sm"><i class="fa fa-long-arrow-left"></i></a>
+					<a href="{{ route('messages') }}" class="btn btn-sm btn-default w-xxs m-r-sm"><i class="fa fa-arrow-left"></i></a>
 				@else
-					<a href="{{ route('messages_sent') }}" class="btn btn-sm btn-default w-xxs m-r-sm"><i class="fa fa-long-arrow-left"></i></a>
+					<a href="{{ route('messages_sent') }}" class="btn btn-sm btn-default w-xxs m-r-sm"><i class="fa fa-arrow-left"></i></a>
 				@endif
-				<button class="btn btn-sm btn-default w-xxs w-auto-xs" title="Delete" data-toggle="modal" data-target="#modal-delete-message"><i class="fa fa-trash-o"></i></button>
+				<button class="btn btn-sm btn-default w-xxs w-auto-xs" title="Delete" data-toggle="modal" data-target="#modal-delete-message"><i class="fa fa-trash"></i></button>
 			</div>
 			<!-- / header -->
 			<div class="wrapper b-b">

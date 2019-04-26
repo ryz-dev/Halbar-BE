@@ -42,9 +42,37 @@
 								<div class="form-group">
 									<label>Biografi</label>
 									<textarea name="biografi" class="form-control" cols="30" rows="9">{{ $employee->biografi }}</textarea>
-								</div>									
+								</div>
+								<div class="form-group">
+									<label>Tempat Lahir</label>
+									<input type="text" name="tempat_lahir" value="{{$employee->tempat_lahir}}" class="form-control" placeholder="Tempat lahir" >
+								</div>
+								<div class="form-group">
+									<label>Tanggal Lahir</label>
+									<input type="date" name="tanggal_lahir" class="form-control" value="{{$employee->tanggal_lahir}}" placeholder="Tanggal lahir " required>
+								</div>
+								<div class="form-group">
+									<label>Agama</label>
+									<input type="text" name="agama" class="form-control" placeholder="Agama" value="{{$employee->agama}}">
+								</div>
+								<div class="form-group">
+									<label>Pend. terakhir</label>
+									<input type="text" name="pendidikan_terakhir" class="form-control"  placeholder="Pendidikan terakhir" value="{{$employee->pendidikan_terakhir}}" >
+								</div>
+								<div class="form-group">
+									<label>Masa Bakti</label>
+									<input type="text" name="masa_bakti" value="{{$employee->masa_bakti}}" class="form-control" placeholder="Masa bakti" >
+								</div>
+								<div class="form-group">
+									<label>Alamat Rumah</label>
+									<input type="text" value="{{$employee->alamat_rumah}}" name="alamat_rumah" class="form-control" placeholder="Alamat rumah" >
+								</div>
+								<div class="form-group">
+									<label>Alamat Kantor</label>
+									<input type="text" name="alamat_kantor" value="{{$employee->alamat_kantor}}" class="form-control" placeholder="Alamat kantor" >
+								</div>
 							</div>
-							<div class="col-md-3">								
+							<div class="col-md-3">
 								<div class="form-group">
 									<label>Position</label>
 									<input type="text" name="position" value="{{$employee->position}}" class="form-control" placeholder="Position" required>

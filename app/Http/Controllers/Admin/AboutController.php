@@ -69,18 +69,32 @@ class AboutController extends Controller
             'image'=>'required',
             'nip' => 'max:20',
             'email'=>'max:150',
-            'phone'=>'max:20'
+            'phone'=>'max:20',
+            'tempat_lahir' => 'max:191',
+            'tanggal_lahir' => 'date',
+            'agama' => 'max:191',
+            'pendidikan_terakhir' => 'max:191',
+            'masa_bakti' => 'max:191',
+            'alamat_rumah' => 'max:191',
+            'alamat_kantor' => 'max:191',
         ]);
 
         /*Save DB*/
-        DB::insert('insert into pages_about_team (name, position, nip, image, phone, email, biografi) values (?, ?, ?, ?, ?, ?, ?)', [
+        DB::insert('insert into pages_about_team (name, position, nip, image, phone, email, biografi, tempat_lahir, tanggal_lahir, agama, pendidikan_terakhir, masa_bakti, alamat_rumah, alamat_kantor) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)', [
                 $r->name,
                 $r->position,
                 $r->nip,
                 $r->image,
                 $r->phone,
                 $r->email,
-                $r->biografi
+                $r->biografi,
+                $r->tempat_lahir,
+                $r->tanggal_lahir,
+                $r->agama,
+                $r->pendidikan_terakhir,
+                $r->masa_bakti,
+                $r->alamat_rumah,
+                $r->alamat_kantor,
             ]);
 
         /*Success Message*/
@@ -111,11 +125,18 @@ class AboutController extends Controller
             'image'=>'required',
             'nip' => 'max:20',
             'email'=>'max:150',
-            'phone'=>'max:20'
+            'phone'=>'max:20',
+            'tempat_lahir' => 'max:191',
+            'tanggal_lahir' => 'date',
+            'agama' => 'max:191',
+            'pendidikan_terakhir' => 'max:191',
+            'masa_bakti' => 'max:191',
+            'alamat_rumah' => 'max:191',
+            'alamat_kantor' => 'max:191',
         ]);
 
         /*Save to DB*/
-        DB::update('update pages_about_team set name = ?, position = ?, nip = ?, phone = ?, email = ?, biografi = ?, image = ? where id = ?', [
+        DB::update('update pages_about_team set name = ?, position = ?, nip = ?, phone = ?, email = ?, biografi = ?, image = ?, tempat_lahir = ?, tanggal_lahir = ? , agama = ?, pendidikan_terakhir = ?, masa_bakti = ?, alamat_rumah = ?, alamat_kantor = ?   where id = ?', [
             $r->name,
             $r->position,
             $r->nip,
@@ -123,7 +144,14 @@ class AboutController extends Controller
             $r->email,
             $r->biografi,
             $r->image,
-            $r->id
+            $r->tempat_lahir,
+            $r->tanggal_lahir,
+            $r->agama,
+            $r->pendidikan_terakhir,
+            $r->masa_bakti,
+            $r->alamat_rumah,
+            $r->alamat_kantor,
+            $r->id,
         ]);
 
         /*Success Message*/

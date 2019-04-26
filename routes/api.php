@@ -59,7 +59,7 @@ Route::group(['middleware' => ['apikey'], 'namespace' => 'API\V1','prefix' => 'v
     });
     Route::group(['prefix' => 'team'], function () {
         Route::get('', 'TeamController@index');
-        Route::get('{id}', 'TeamController@read');
+        Route::get('/{id}', 'TeamController@read');
     });
     Route::group(['prefix' => 'setting'], function () {
         Route::get('', 'SettingController@index');

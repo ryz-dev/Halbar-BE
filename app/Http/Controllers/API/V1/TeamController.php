@@ -26,9 +26,51 @@ class TeamController extends Controller
                 'email' => $value->email,
                 'nip' => $value->nip,
                 'phone' => $value->phone,
-                'biografi' => $value->biografi
+                'biografi' => $value->biografi,
+                'tempat_lahir' => $value->tempat_lahir,
+                'tanggal_lahir' => $value->tanggal_lahir,
+                'agama' => $value->agama,
+                'pendidikan_terakhir' => $value->pendidikan_terakhir,
+                'masa_bakti' => $value->masa_bakti,
+                'alamat_rumah' => $value->alamat_rumah,
+                'alamat_kantor' => $value->alamat_kantor,
             ];
         }
+        if (isset($Team['response'])) {
+            $Team['diagnostic'] = [
+                'code' => 200,
+                'status' => 'ok'
+            ];
+            return response($Team, 200);
+        }
+        return response([
+            'diagnostic' => [
+                'status' => 'NOT_FOUND',
+                'code' => 404
+            ]
+        ], 404);
+    }
+
+    public function read($id = null){
+        $dataTeam = PagesAboutTeam::where('id', $id)->first();
+        $Team['response'] = [
+            'id' => $dataTeam->id,
+            'name' => $dataTeam->name,
+            'position' => $dataTeam->position,
+            'image' => asset('uploaded/media/'.$dataTeam->image),
+            'email' => $dataTeam->email,
+            'nip' => $dataTeam->nip,
+            'phone' => $dataTeam->phone,
+            'biografi' => $dataTeam->biografi,
+            'tempat_lahir' => $dataTeam->tempat_lahir,
+            'tanggal_lahir' => $dataTeam->tanggal_lahir,
+            'agama' => $dataTeam->agama,
+            'pendidikan_terakhir' => $dataTeam->pendidikan_terakhir,
+            'masa_bakti' => $dataTeam->masa_bakti,
+            'alamat_rumah' => $dataTeam->alamat_rumah,
+            'alamat_kantor' => $dataTeam->alamat_kantor,
+        ];
+
         if (isset($Team['response'])) {
             $Team['diagnostic'] = [
                 'code' => 200,

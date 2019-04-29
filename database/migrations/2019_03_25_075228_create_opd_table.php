@@ -21,7 +21,7 @@ class CreateOpdTable extends Migration
             $table->text('welcome_message');
             $table->longText('content');
             $table->text('image')->nullable();
-            $table->text('link');
+            $table->text('link')->nullable();
             $table->integer('team_id');
             $table->string('category', 10);
             $table->timestamp('created_at')->default(\DB::raw('CURRENT_TIMESTAMP'));

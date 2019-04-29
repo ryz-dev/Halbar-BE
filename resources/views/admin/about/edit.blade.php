@@ -52,6 +52,19 @@
 									<input type="date" name="tanggal_lahir" class="form-control" value="{{$employee->tanggal_lahir}}" placeholder="Tanggal lahir " required>
 								</div>
 								<div class="form-group">
+									<label>Jenis Kelamin</label>
+									<div class="form-check">
+										<input class="form-check-input" name="jenis_kelamin" type="radio" value="Laki - laki" {{ $employee->jenis_kelamin=='Laki - laki'?'checked':'' }} required>
+										<label class="form-check-label">
+											Laki - laki
+										</label>
+										<input class="form-check-input" name="jenis_kelamin" type="radio" value="Perempuan" {{ $employee->jenis_kelamin=='Perempuan'?'checked':'' }} required >
+										<label class="form-check-label">
+											Perempuan
+										</label>
+									</div>
+								</div>
+								<div class="form-group">
 									<label>Agama</label>
 									<input type="text" name="agama" class="form-control" placeholder="Agama" value="{{$employee->agama}}">
 								</div>

@@ -80,7 +80,7 @@ class AboutController extends Controller
         ]);
 
         /*Save DB*/
-        DB::insert('insert into pages_about_team (name, position, nip, image, phone, email, biografi, tempat_lahir, tanggal_lahir, agama, pendidikan_terakhir, masa_bakti, alamat_rumah, alamat_kantor) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)', [
+        DB::insert('insert into pages_about_team (name, position, nip, image, phone, email, biografi, tempat_lahir, tanggal_lahir, agama, pendidikan_terakhir, masa_bakti, alamat_rumah, alamat_kantor, jenis_kelamin) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?)', [
                 $r->name,
                 $r->position,
                 $r->nip,
@@ -95,6 +95,7 @@ class AboutController extends Controller
                 $r->masa_bakti,
                 $r->alamat_rumah,
                 $r->alamat_kantor,
+                $r->jenis_kelamin
             ]);
 
         /*Success Message*/
@@ -136,7 +137,7 @@ class AboutController extends Controller
         ]);
 
         /*Save to DB*/
-        DB::update('update pages_about_team set name = ?, position = ?, nip = ?, phone = ?, email = ?, biografi = ?, image = ?, tempat_lahir = ?, tanggal_lahir = ? , agama = ?, pendidikan_terakhir = ?, masa_bakti = ?, alamat_rumah = ?, alamat_kantor = ?   where id = ?', [
+        DB::update('update pages_about_team set name = ?, position = ?, nip = ?, phone = ?, email = ?, biografi = ?, image = ?, tempat_lahir = ?, tanggal_lahir = ? , agama = ?, pendidikan_terakhir = ?, masa_bakti = ?, alamat_rumah = ?, alamat_kantor = ?, jenis_kelamin = ?   where id = ?', [
             $r->name,
             $r->position,
             $r->nip,
@@ -151,6 +152,7 @@ class AboutController extends Controller
             $r->masa_bakti,
             $r->alamat_rumah,
             $r->alamat_kantor,
+            $r->jenis_kelamin,
             $r->id,
         ]);
 

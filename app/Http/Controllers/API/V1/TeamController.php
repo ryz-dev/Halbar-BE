@@ -29,7 +29,7 @@ class TeamController extends Controller
                 'biografi' => $value->biografi,
                 'tempat_lahir' => $value->tempat_lahir,
                 'tanggal_lahir' => $value->tanggal_lahir,
-                'jenis_kelamin' => $dataTeam->jenis_kelamin,
+                'jenis_kelamin' => $value->jenis_kelamin,
                 'agama' => $value->agama,
                 'pendidikan_terakhir' => $value->pendidikan_terakhir,
                 'masa_bakti' => $value->masa_bakti,

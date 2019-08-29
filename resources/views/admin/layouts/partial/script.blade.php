@@ -30,7 +30,7 @@
 <script type="text/javascript" src="{{ asset('assets') }}/admin/libs/jquery/froala/js/plugins/url.min.js"></script>
 <script type="text/javascript" src="{{ asset('assets') }}/admin/libs/jquery/froala/js/plugins/video.min.js"></script>
 <script src="{{ asset('assets') }}/admin/libs/dropzone/dropzone.js"></script>
-<script src="http://harvesthq.github.io/chosen/chosen.jquery.js"></script>
+<script src="https://harvesthq.github.io/chosen/chosen.jquery.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.min.js"></script>
 
 <!-- Fancybox -->
@@ -57,7 +57,7 @@
     $('.chosen-select').chosen();
     $('.chosen-select-deselect').chosen({ allow_single_deselect: true });
   });
-  $(document).ready(function(){    
+  $(document).ready(function(){
     $('.loader').hide();
     $('#aside').theiaStickySidebar({
       additionalMarginTop: 30
